@@ -5,7 +5,7 @@
 
 Name:           xfdesktop
 Version:        4.21.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Desktop manager for the Xfce Desktop Environment
 
 License:        GPL-2.0-or-later
@@ -65,5 +65,3 @@ This package includes a desktop manager for the Xfce Desktop Environment.
 %{_mandir}/man1/xfdesktop.1*
 
 %changelog
-* Fri Oct 30 2026 qikp <qikp@example.com> - 4.21.1-1
-- Initial Xfce 4.21 spec file

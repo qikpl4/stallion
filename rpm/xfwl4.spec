@@ -11,7 +11,7 @@
 
 Name:           xfwl4
 Version:        4.21.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Xfce Wayland compositor
 
 License:        GPL-3.0-or-later
@@ -88,5 +88,3 @@ Development files for xfwl4.
 %{_datadir}/xfce4/xfwl4/defaults
 
 %changelog
-* Fri Oct 30 2026 qikp <qikp@example.com> - 4.21.1-1
-- Initial Xfce 4.21 spec file for xfwl4

@@ -5,7 +5,7 @@
 
 Name:           xfce4-session
 Version:        4.21.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Xfce session manager
 
 License:        GPL-2.0-or-later
@@ -112,5 +112,3 @@ Development files for xfce4-session.
 %doc %{_datadir}/gtk-doc/html/libxfce4session-client
 
 %changelog
-* Fri Oct 30 2026 qikp <qikp@example.com> - 4.21.2-1
-- Initial Xfce 4.21 spec file

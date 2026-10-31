@@ -7,7 +7,7 @@
 
 Name:           libxfce4util
 Version:        4.21.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Utility library for the Xfce desktop environment
 
 License:        LGPL-2.1-or-later
@@ -72,5 +72,3 @@ libxfce4util library.
 %doc %{_datadir}/gtk-doc/
 
 %changelog
-* Fri Oct 30 2026 qikp <qikp@example.com> - 4.21.0-1
-- Initial Xfce 4.21 spec file

@@ -5,7 +5,7 @@
 
 Name:           garcon
 Version:        4.21.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Implementation of the freedesktop.org menu specification
 
 License:        LGPL-2.1-or-later AND GFDL-1.1-or-later
@@ -77,5 +77,3 @@ developing applications that use %{name}.
 %doc %{_datadir}/gtk-doc/
 
 %changelog
-* Fri Oct 30 2026 qikp <qikp@example.com> - 4.21.0-1
-- Initial Xfce 4.21 spec file

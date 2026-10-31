@@ -5,7 +5,7 @@
 
 Name:           tumbler
 Version:        4.21.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        D-Bus service for applications to request thumbnails
 
 License:        GPL-2.0-or-later AND LGPL-2.1-or-later
@@ -89,5 +89,3 @@ that use %{name}.
 %doc %{_datadir}/gtk-doc/html/tumbler
 
 %changelog
-* Fri Oct 30 2026 qikp <qikp@example.com> - 4.21.1-1
-- Initial Xfce 4.21 spec file

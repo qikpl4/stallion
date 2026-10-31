@@ -5,7 +5,7 @@
 
 Name:           libxfce4ui
 Version:        4.21.9
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Commonly used Xfce widgets
 
 License:        LGPL-2.1-or-later
@@ -107,5 +107,3 @@ developing applications that use %{name}.
 %doc %{_datadir}/gtk-doc/
 
 %changelog
-* Fri Oct 30 2026 qikp <qikp@example.com> - 4.21.9-1
-- Initial Xfce 4.21 spec file

@@ -5,7 +5,7 @@
 
 Name:           exo
 Version:        4.21.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Application library for the Xfce desktop environment
 
 License:        LGPL-2.1-or-later AND GPL-2.0-or-later
@@ -67,5 +67,3 @@ find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 %{_libdir}/pkgconfig/*.pc
 
 %changelog
-* Fri Oct 30 2026 qikp <qikp@example.com> - 4.21.0-1
-- Initial Xfce 4.21 spec file

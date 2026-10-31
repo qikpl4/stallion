@@ -5,7 +5,7 @@
 
 Name:           xfce4-power-manager
 Version:        4.21.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Power management for the Xfce desktop environment
 
 License:        GPL-2.0-or-later
@@ -88,5 +88,3 @@ preferences.
 %{_datadir}/xfce4/panel/plugins/power-manager-plugin.desktop
 
 %changelog
-* Fri Oct 30 2026 qikp <qikp@example.com> - 4.21.1-1
-- Initial Xfce 4.21 spec file

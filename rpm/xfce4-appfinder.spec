@@ -5,7 +5,7 @@
 
 Name:           xfce4-appfinder
 Version:        4.21.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Application finder for Xfce
 
 License:        GPL-2.0-or-later
@@ -51,5 +51,3 @@ xfce4-appfinder is an application finder for the Xfce desktop environment.
 %{_datadir}/metainfo/org.xfce.xfce4-appfinder.appdata.xml
 
 %changelog
-* Fri Oct 30 2026 qikp <qikp@example.com> - 4.21.1-1
-- Initial Xfce 4.21 spec file

@@ -5,7 +5,7 @@
 
 Name:           xfwm4
 Version:        4.20.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Next generation window manager for Xfce
 
 License:        GPL-2.0-or-later

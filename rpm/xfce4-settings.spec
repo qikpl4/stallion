@@ -5,7 +5,7 @@
 
 Name:           xfce4-settings
 Version:        4.21.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Settings Manager for Xfce
 
 License:        GPL-2.0-or-later
@@ -97,5 +97,3 @@ This package includes the settings manager applications for the Xfce desktop.
 %{_datadir}/xfce4/helpers/*.desktop
 
 %changelog
-* Fri Oct 30 2026 qikp <qikp@example.com> - 4.21.3-1
-- Initial Xfce 4.21 spec file

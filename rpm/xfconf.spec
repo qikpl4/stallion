@@ -5,7 +5,7 @@
 
 Name:           xfconf
 Version:        4.21.2
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Hierarchical configuration system for Xfce
 
 License:        GPL-2.0-only
@@ -82,5 +82,3 @@ to compile applications for xfconf.
 %{_libdir}/gio/modules/libxfconfgsettingsbackend.so
 
 %changelog
-* Fri Oct 30 2026 qikp <qikp@example.com> - 4.21.2-1
-- Initial Xfce 4.21 spec file

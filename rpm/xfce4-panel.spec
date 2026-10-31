@@ -5,7 +5,7 @@
 
 Name:           xfce4-panel
 Version:        4.21.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Next generation panel for Xfce
 
 License:        GPL-2.0-or-later AND LGPL-2.0-or-later
@@ -89,5 +89,3 @@ Development files for xfce4-panel.
 %doc %{_datadir}/gtk-doc/html/libxfce4panel-2.0
 
 %changelog
-* Fri Oct 30 2026 qikp <qikp@example.com> - 4.21.3-1
-- Initial Xfce 4.21 spec file

@@ -2,7 +2,7 @@
 
 Name:           xfce4-dev-tools
 Version:        4.21.2
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Xfce developer tools
 
 License:        GPL-2.0-or-later
