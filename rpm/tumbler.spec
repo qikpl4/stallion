@@ -5,7 +5,7 @@
 
 Name:           tumbler
 Version:        4.21.1
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        D-Bus service for applications to request thumbnails
 
 License:        GPL-2.0-or-later AND LGPL-2.1-or-later
@@ -86,6 +86,5 @@ that use %{name}.
 %{_includedir}/tumbler-1/
 %{_libdir}/libtumbler-1.so
 %{_libdir}/pkgconfig/tumbler-1.pc
-%doc %{_datadir}/gtk-doc/html/tumbler
 
 %changelog
