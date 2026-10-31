@@ -1,7 +1,7 @@
 # Xfce 4.21 spec file for xfce4-dev-tools
 Name:           xfce4-dev-tools
 Version:        4.21.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Development tools for Xfce
 
 License:        GPL-2.0-or-later
@@ -13,6 +13,7 @@ BuildRequires:  automake
 BuildRequires:  gettext
 BuildRequires:  intltool
 BuildRequires:  make
+BuildRequires:  gcc
 
 %description
 Xfce development tools, including scripts and utilities for building Xfce packages.
