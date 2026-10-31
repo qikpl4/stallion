@@ -5,7 +5,7 @@
 
 Name:           xfce4-session
 Version:        4.21.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Xfce session manager
 
 License:        GPL-2.0-or-later
@@ -28,6 +28,7 @@ BuildRequires:  libxfce4windowing-devel >= 4.19.2
 BuildRequires:  make
 BuildRequires:  meson
 BuildRequires:  polkit-devel
+BuildRequires:  wayland-protocols
 BuildRequires:  xfconf-devel >= %{xfce_version}
 BuildRequires:  xrdb
 
