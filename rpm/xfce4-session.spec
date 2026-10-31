@@ -5,7 +5,7 @@
 
 Name:           xfce4-session
 Version:        4.21.2
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Xfce session manager
 
 License:        GPL-2.0-or-later
@@ -17,6 +17,7 @@ BuildRequires:  gcc
 BuildRequires:  glib2-devel >= 2.72.0
 BuildRequires:  gtk-layer-shell-devel
 BuildRequires:  gtk3-devel >= 3.24.0
+BuildRequires:  iceauth
 BuildRequires:  intltool
 BuildRequires:  libICE-devel
 BuildRequires:  libSM-devel
