@@ -2,7 +2,7 @@
 
 Name:           xfce4-dev-tools
 Version:        4.21.2
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Xfce developer tools
 
 License:        GPL-2.0-or-later
@@ -54,5 +54,6 @@ that want to build Xfce from Git.
 %{_bindir}/xdt-gen-visibility
 %{_datadir}/aclocal/*
 %{_mandir}/man1/xdt-csource.1.gz
+%{_libdir}/cppcheck/cfg/xfce.cfg
 
 %changelog
