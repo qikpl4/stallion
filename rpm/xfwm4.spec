@@ -69,5 +69,3 @@ xfwm4 is a window manager compatible with GNOME, GNOME2, KDE2, KDE3 and Xfce.
 %{_datadir}/icons/hicolor/*/actions/xfce-wm-*.png
 
 %changelog
-* Fri Oct 30 2026 qikp <qikp@example.com> - 4.20.0-1
-- Initial Xfce 4.20 spec file
