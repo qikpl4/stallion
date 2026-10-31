@@ -5,7 +5,7 @@
 
 Name:           xfconf
 Version:        4.21.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Hierarchical configuration system for Xfce
 
 License:        GPL-2.0-only
@@ -76,7 +76,6 @@ to compile applications for xfconf.
 %{_userunitdir}/xfconfd.service
 
 %files devel
-%doc %{_datadir}/gtk-doc
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/xfce4/xfconf-0
