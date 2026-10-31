@@ -5,7 +5,7 @@
 
 Name:           xfce4-session
 Version:        4.21.2
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Xfce session manager
 
 License:        GPL-2.0-or-later
@@ -64,7 +64,7 @@ Development files for xfce4-session.
 
 %build
 %meson \
-    -Dgtk-doc=true \
+    -Dgtk-doc=false \
     -Dintrospection=true \
     -Dvala=disabled \
     -Dx11=enabled \

@@ -5,7 +5,7 @@
 
 Name:           tumbler
 Version:        4.21.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        D-Bus service for applications to request thumbnails
 
 License:        GPL-2.0-or-later AND LGPL-2.1-or-later
@@ -48,7 +48,7 @@ that use %{name}.
 
 %build
 %meson \
-    -Dgtk-doc=true \
+    -Dgtk-doc=false \
     -Dcover-thumbnailer=enabled \
     -Ddesktop-thumbnailer=enabled \
     -Dffmpeg-thumbnailer=disabled \
