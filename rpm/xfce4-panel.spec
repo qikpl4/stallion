@@ -5,7 +5,7 @@
 
 Name:           xfce4-panel
 Version:        4.21.3
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Next generation panel for Xfce
 
 License:        GPL-2.0-or-later AND LGPL-2.0-or-later
@@ -27,6 +27,7 @@ BuildRequires:  libxml2-devel >= 2.4.0
 BuildRequires:  meson
 BuildRequires:  startup-notification-devel
 BuildRequires:  xfce4-dev-tools
+BuildRequires:  xfce4-session
 BuildRequires:  xfconf-devel >= %{xfce_version}
 
 %description
