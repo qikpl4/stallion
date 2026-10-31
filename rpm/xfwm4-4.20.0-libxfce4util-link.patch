@@ -1,0 +1,38 @@
+diff -ruN a/settings-dialogs/Makefile.am b/settings-dialogs/Makefile.am
+--- a/settings-dialogs/Makefile.am	2024-10-23 09:33:12.000000000 -0400
++++ b/settings-dialogs/Makefile.am	2026-10-30 16:57:54.970696083 -0400
+@@ -55,6 +55,7 @@
+ 	$(GTK_LIBS) \
+ 	$(GLIB_LIBS) \
+ 	$(DBUS_GLIB_LIBS) \
++	$(LIBXFCE4UTIL_LIBS) \
+ 	$(LIBXFCE4UI_LIBS) \
+ 	$(LIBXFCE4KBD_PRIVATE_LIBS) \
+ 	$(LIBXFCONF_LIBS)
+@@ -80,6 +81,7 @@
+ 	$(GTK_LIBS) \
+ 	$(GLIB_LIBS) \
+ 	$(DBUS_GLIB_LIBS) \
++	$(LIBXFCE4UTIL_LIBS) \
+ 	$(LIBXFCE4UI_LIBS) \
+ 	$(LIBXFCONF_LIBS)
+ 
+diff -ruN a/settings-dialogs/Makefile.in b/settings-dialogs/Makefile.in
+--- a/settings-dialogs/Makefile.in	2024-12-15 04:39:09.000000000 -0500
++++ b/settings-dialogs/Makefile.in	2026-10-30 16:57:54.971046513 -0400
+@@ -505,6 +505,7 @@
+ 	$(GTK_LIBS) \
+ 	$(GLIB_LIBS) \
+ 	$(DBUS_GLIB_LIBS) \
++	$(LIBXFCE4UTIL_LIBS) \
+ 	$(LIBXFCE4UI_LIBS) \
+ 	$(LIBXFCE4KBD_PRIVATE_LIBS) \
+ 	$(LIBXFCONF_LIBS)
+@@ -530,6 +531,7 @@
+ 	$(GTK_LIBS) \
+ 	$(GLIB_LIBS) \
+ 	$(DBUS_GLIB_LIBS) \
++	$(LIBXFCE4UTIL_LIBS) \
+ 	$(LIBXFCE4UI_LIBS) \
+ 	$(LIBXFCONF_LIBS)
+ 
