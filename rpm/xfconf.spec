@@ -5,7 +5,7 @@
 
 Name:           xfconf
 Version:        4.21.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Hierarchical configuration system for Xfce
 
 License:        GPL-2.0-only
@@ -49,7 +49,7 @@ to compile applications for xfconf.
 
 %build
 %meson \
-    -Dgtk-doc=true \
+    -Dgtk-doc=false \
     -Dintrospection=true \
     -Dvala=enabled \
     -Dgsettings-backend=true
