@@ -1,22 +1,33 @@
-# Xfce 4.21 spec file for xfce4-dev-tools
+%global xfceversion 4.21
+
 Name:           xfce4-dev-tools
 Version:        4.21.2
-Release:        2%{?dist}
-Summary:        Development tools for Xfce
+Release:        3%{?dist}
+Summary:        Xfce developer tools
 
 License:        GPL-2.0-or-later
 URL:            https://docs.xfce.org/xfce/xfce4-dev-tools/start
-Source0:        https://archive.xfce.org/src/xfce/%{name}/4.21/%{name}-%{version}.tar.bz2
+#VCS git:https://gitlab.xfce.org/xfce/xfce4-dev-tools.git
+Source0:        http://archive.xfce.org/xfce/%{xfceversion}/src/%{name}-%{version}.tar.bz2
 
-BuildRequires:  autoconf
-BuildRequires:  automake
-BuildRequires:  gettext
+BuildRequires:  gettext-devel
+BuildRequires:  libtool
 BuildRequires:  intltool
 BuildRequires:  make
-BuildRequires:  gcc
+BuildRequires:  glib2-devel
+BuildRequires:  libxslt-devel
+BuildRequires:  meson
+Requires:       autoconf
+Requires:       automake
+Requires:       gawk
+Requires:       git
+Requires:       glib2-devel
+Requires:       grep
+Requires:       intltool
 
 %description
-Xfce development tools, including scripts and utilities for building Xfce packages.
+This package contains common tools required by Xfce developers and people
+that want to build Xfce from Git.
 
 %prep
 %autosetup
@@ -28,16 +39,20 @@ Xfce development tools, including scripts and utilities for building Xfce packag
 %install
 %make_install
 
+
 %files
-%{_bindir}/xdt-*
+%license COPYING
+%doc AUTHORS ChangeLog HACKING NEWS
 %{_bindir}/xfce-build
-%{_bindir}/xfce-get-*
-%{_bindir}/xfce-update-*
-%{_bindir}/xfce-do-*
-%{_datadir}/aclocal/*.m4
-%{_mandir}/man1/xdt-*
-%{_libdir}/cppcheck/cfg/xfce.cfg
+%{_bindir}/xfce-do-release
+%{_bindir}/xfce-get-release-notes
+%{_bindir}/xfce-get-translations
+%{_bindir}/xfce-update-news
+%{_bindir}/xdt-autogen
+%{_bindir}/xdt-check-abi
+%{_bindir}/xdt-csource
+%{_bindir}/xdt-gen-visibility
+%{_datadir}/aclocal/*
+%{_mandir}/man1/xdt-csource.1.gz
 
 %changelog
-* Fri Oct 30 2026 qikp <qikp@example.com> - 4.21.2-1
-- Initial Xfce 4.21 spec file
