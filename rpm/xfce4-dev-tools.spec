@@ -2,13 +2,13 @@
 
 Name:           xfce4-dev-tools
 Version:        4.21.2
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Xfce developer tools
 
 License:        GPL-2.0-or-later
 URL:            https://docs.xfce.org/xfce/xfce4-dev-tools/start
 #VCS git:https://gitlab.xfce.org/xfce/xfce4-dev-tools.git
-Source0:        http://archive.xfce.org/xfce/%{xfceversion}/src/%{name}-%{version}.tar.bz2
+Source0:        https://archive.xfce.org/src/xfce/%{name}/%{xfceversion}/%{name}-%{version}.tar.bz2
 
 BuildRequires:  gettext-devel
 BuildRequires:  libtool
