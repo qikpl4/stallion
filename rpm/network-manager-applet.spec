@@ -1,11 +1,16 @@
-# Why the hell did Red Hat remove all of the useful functionality from this in c10s?
-
 %global gtk3_version    %(pkg-config --modversion gtk+-3.0 2>/dev/null || echo bad)
 %global gtk4_version    %(pkg-config --modversion gtk4 2>/dev/null || echo bad)
 %global glib2_version   %(pkg-config --modversion glib-2.0 2>/dev/null || echo bad)
 %global nm_version      1:1.16.0
 %global libnma_version  1.8.27
 %global obsoletes_ver   1:0.9.7
+
+%global rpm_version 1.26.0
+%global real_version 1.26.0
+%global release_version 1
+%global epoch 1
+
+%global real_version_major %(printf '%s' '%{real_version}' | sed -n 's/^\\([1-9][0-9]*\\.[1-9][0-9]*\\)\\.[1-9][0-9]*$/\\1/p')
 
 %if 0%{?fedora} > 31 || 0%{?rhel} > 8
 %bcond_with libnma_gtk4
@@ -21,17 +26,19 @@
 
 Name: network-manager-applet
 Summary: A network control and status applet for NetworkManager
-Version: 1.36.0
-Release: 2%{?dist}
-Epoch:   1
-License: GPL-2.0-or-later
+Version: %{rpm_version}
+Release: %{release_version}%{?dist}
+Epoch:   %{epoch}
+License: GPLv2+
 URL: http://www.gnome.org/projects/NetworkManager/
 Obsoletes: NetworkManager-gnome < %{obsoletes_ver}
 
-Source: https://download.gnome.org/sources/network-manager-applet/1.36/%{name}-%{version}.tar.xz
-Patch1: 0001-nm-applet-no-notifications.patch
+Source: https://download.gnome.org/sources/network-manager-applet/%{real_version_major}/%{name}-%{real_version}.tar.xz
+# Patch1: 0001-sample-name.patch
+Patch1: 0001-po-ja-update-Japanese-translation.patch
 
 Requires: NetworkManager >= %{nm_version}
+Requires: libnotify >= 0.4.3
 Requires: nm-connection-editor%{?_isa} = %{version}-%{release}
 Requires: libnma%{?_isa} >= %{libnma_version}
 
@@ -47,11 +54,13 @@ BuildRequires: gobject-introspection-devel >= 0.10.3
 BuildRequires: gettext-devel
 BuildRequires: /usr/bin/autopoint
 BuildRequires: pkgconfig
+BuildRequires: libnotify-devel >= 0.4
 BuildRequires: meson
 BuildRequires: intltool
 BuildRequires: gtk-doc
 BuildRequires: desktop-file-utils
 BuildRequires: iso-codes-devel
+BuildRequires: libgudev1-devel >= 147
 BuildRequires: libsecret-devel >= 0.12
 BuildRequires: jansson-devel
 BuildRequires: gcr-devel
@@ -71,6 +80,7 @@ for use with NetworkManager.
 %package -n nm-connection-editor
 Summary: A network connection configuration editor for NetworkManager
 Requires: libnma%{?_isa} >= %{libnma_version}
+Epoch: %{epoch}
 
 %description -n nm-connection-editor
 This package contains a network configuration editor and Bluetooth modem
@@ -80,6 +90,7 @@ utility for use with NetworkManager.
 %package -n nm-connection-editor-desktop
 Summary: The desktop file for nm-connection-editor
 Requires: nm-connection-editor%{?_isa} = %{version}-%{release}
+Epoch: %{epoch}
 
 %description -n nm-connection-editor-desktop
 This package contains the desktop file and appdata for nm-connection-editor.
@@ -88,13 +99,13 @@ environment.
 
 
 %prep
-%autosetup -p1
+%autosetup -p1 -n "%{name}-%{real_version}"
 
 %build
 %meson \
     -Dselinux=true \
 %if %{with appindicator}
-    -Dappindicator=auto
+    -Dappindicator=yes
 %else
     -Dappindicator=no
 %endif
@@ -103,8 +114,10 @@ environment.
 %install
 %meson_install
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/gnome-vpn-properties
+
 %find_lang nm-applet
 cat nm-applet.lang >> %{name}.lang
+
 # validate .desktop and autostart files
 desktop-file-validate $RPM_BUILD_ROOT%{_sysconfdir}/xdg/autostart/nm-applet.desktop
 desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/nm-connection-editor.desktop
@@ -117,7 +130,6 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/nm-connection-edit
 %{_bindir}/nm-applet
 %{_datadir}/applications/nm-applet.desktop
 %{_datadir}/icons/hicolor/22x22/apps/nm-adhoc.png
-%{_datadir}/icons/hicolor/22x22/apps/nm-insecure-warn.png
 %{_datadir}/icons/hicolor/22x22/apps/nm-mb-roam.png
 %{_datadir}/icons/hicolor/22x22/apps/nm-secure-lock.png
 %{_datadir}/icons/hicolor/22x22/apps/nm-signal-*.png
@@ -127,7 +139,7 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/nm-connection-edit
 %{_datadir}/icons/hicolor/22x22/apps/nm-vpn-connecting*.png
 %{_datadir}/icons/hicolor/22x22/apps/nm-wwan-tower.png
 %{_datadir}/icons/hicolor/scalable/apps/*.svg
-%{_datadir}/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml
+%{_datadir}/icons/hicolor/22x22/apps/nm-insecure-warn.png
 %{_datadir}/GConf/gsettings/nm-applet.convert
 %{_sysconfdir}/xdg/autostart/nm-applet.desktop
 %{_mandir}/man1/nm-applet*
@@ -136,14 +148,14 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/nm-connection-edit
 
 # Yes, lang files for the applet go in nm-connection-editor RPM since it
 # is the RPM that everything else depends on
-%files -n nm-connection-editor
+%files -n nm-connection-editor -f %{name}.lang
 %{_bindir}/nm-connection-editor
 %{_datadir}/icons/hicolor/*/apps/nm-device-*.*
 %{_datadir}/icons/hicolor/*/apps/nm-no-connection.*
 %{_datadir}/icons/hicolor/16x16/apps/nm-vpn-standalone-lock.png
 %{_mandir}/man1/nm-connection-editor*
-%{_datadir}/locale/*/LC_MESSAGES/nm-applet.mo
 %dir %{_datadir}/gnome-vpn-properties
+
 
 %files -n nm-connection-editor-desktop
 %{_datadir}/applications/nm-connection-editor.desktop
@@ -151,68 +163,35 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/nm-connection-edit
 
 
 %changelog
-* Tue Oct 29 2024 Troy Dawson <tdawson@redhat.com> - 1.36.0-4
-- Bump release for October 2024 mass rebuild:
-  Resolves: RHEL-64018
+* Mon May 03 2024 Stanislas Faye <sfaye@redhat.com> - 1.26.0-3
+- Deprecate nm-applet on RHEL-9 (RHEL-35523)
 
-* Mon Jun 24 2024 Troy Dawson <tdawson@redhat.com> - 1.36.0-3
-- Bump release for June 2024 mass rebuild
+* Fri Oct 07 2022 Lubomir Rintel <lkundrak@v3.sk> - 1.26.0-2
+- Update Japanese translation (rh #2083047)
 
-* Thu Jan 25 2024 Fedora Release Engineering <releng@fedoraproject.org> - 1.36.0-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_40_Mass_Rebuild
+* Tue Mar 22 2022 Ana Cabral <acabral@redhat.com> - 1.26.0-1
+- Update to 1.26.0 release (rh #2066750)
 
-* Fri Jan 19 2024 Íñigo Huguet <ihuguet@redhat.com> - 1.36.0-1
-- Update to 1.36.0 release
+* Tue Feb 22 2022 Ana Cabral <acabral@redhat.com> - 1.24.0-2
+- Fix OWE settings disappearing on nm-connection-editor (rh #2057004)
 
-* Thu Nov  2 2023 Íñigo Huguet <ihuguet@redhat.com> - 1.34.0-2
-- migrate to SPDX license
-
-* Mon Oct 16 2023 Beniamino Galvani <bgalvani@redhat.com> - 1.34.0-1
-- Update to 1.34.0 release
-
-* Thu Jul 20 2023 Fedora Release Engineering <releng@fedoraproject.org> - 1.32.0-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_39_Mass_Rebuild
-
-* Sun Apr 16 2023 Lubomir Rintel <lkundrak@v3.sk> - 1.32.0-1
-- Update to 1.32.0 release
-
-* Fri Feb 17 2023 Lubomir Rintel <lkundrak@v3.sk> - 1.30.0-3
-- applet: use appindicator if we can outside of X11
-
-* Thu Jan 19 2023 Fedora Release Engineering <releng@fedoraproject.org> - 1.30.0-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
-
-* Mon Nov 07 2022 Lubomir Rintel <lkundrak@v3.sk> - 1.30.0-1
-- Update to 1.30.0 release
-
-* Fri Jul 22 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1.28.0-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
-
-* Tue Jun 07 2022 Lubomir Rintel <lkundrak@v3.sk> - 1.28.0-1
-- Update to 1.28.0 release
-
-* Fri May 13 2022 Thomas Haller <thaller@redhat.com> - 1.26.0-2
-- Rebuild and spec file cleanup
-
-* Tue Mar 29 2022 Ana Cabral <acabral@redhat.com> - 1.26.0-1.1
-- Update to 1.26.0 release
-
-* Thu Jan 20 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1.24.0-1.1
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
-
-* Thu Aug 19 2021 Beniamino Galvani <bgalvani@redhat.com> - 1.24.0-1.1
+* Tue Aug 17 2021 Beniamino Galvani <bgalvani@redhat.com> - 1.24.0-1
 - Update to 1.24.0 release
 
-* Thu Jul 22 2021 Fedora Release Engineering <releng@fedoraproject.org> - 1.22.0-1.1
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
+* Mon Aug 09 2021 Mohan Boddu <mboddu@redhat.com> - 1.22.0-1.2
+- Rebuilt for IMA sigs, glibc 2.34, aarch64 flags
+  Related: rhbz#1991688
 
-* Mon May 10 2021 Beniamino Galvani <bgalvani@redhat.com> - 1.22.0-1
-- Update to 1.22.0 release
-- editor: fix crash evaluating secondary connections (rh #1942905)
+* Mon Jul  5 2021 Wen Liang <wenliang@redhat.com> - 1.22.0-1
+- Update to 1.22.0 release.
+- editor: show missing toggle in the 8021x-security page.
 
-* Wed Feb  3 2021 Thomas Haller <thaller@redhat.com> - 1.20.0-4
+* Fri Apr 16 2021 Mohan Boddu <mboddu@redhat.com> - 1.20.0-4.1
+- Rebuilt for RHEL 9 BETA on Apr 15th 2021. Related: rhbz#1947937
+
+* Wed Feb  3 2021 Thomas Haller <thaller@redhat.com> - 1.20.0-1
 - Update to 1.20.0 release
-- editor: drop NotShowIn=GNOME
+- Drop NotShowIn=GNOME
 - Use wireless-security code from libnma
 - Add flatpak build configuration
 - applet: hide unmanaged ethernet devices in nm-applet
