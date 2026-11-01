@@ -22,7 +22,7 @@
 Name: network-manager-applet
 Summary: A network control and status applet for NetworkManager
 Version: 1.36.0
-Release: 1002%{?dist}
+Release: 1003%{?dist}
 License: GPL-2.0-or-later
 URL: http://www.gnome.org/projects/NetworkManager/
 Obsoletes: NetworkManager-gnome < %{obsoletes_ver}
@@ -142,7 +142,6 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/nm-connection-edit
 %{_datadir}/icons/hicolor/16x16/apps/nm-vpn-standalone-lock.png
 %{_mandir}/man1/nm-connection-editor*
 %dir %{_datadir}/gnome-vpn-properties
-%{name}.lang
 
 %files -n nm-connection-editor-desktop
 %{_datadir}/applications/nm-connection-editor.desktop
