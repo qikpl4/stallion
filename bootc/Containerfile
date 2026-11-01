@@ -31,6 +31,7 @@ RUN dnf install -y \
     xfce4-pulseaudio-plugin \
     xfce4-session \
     xfce4-settings \
+    xfce4-taskmanager \
     xfce4-terminal \
     xfce4-whiskermenu-plugin \
     xfconf \
