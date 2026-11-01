@@ -1,0 +1,55 @@
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 */2 * *"
+
+jobs:
+  container:
+    runs-on: ubuntu-24.04
+
+    permissions:
+      packages: write
+    
+    steps:
+      - uses: actions/checkout@v7
+      - run: echo "${{secrets.GITHUB_TOKEN}}" | podman login -u "${{github.actor}}" --password-stdin ghcr.io
+      
+      - run: podman build --no-cache -t "ghcr.io/qikpl4/stallion:latest" bootc
+
+      - run: podman push "ghcr.io/qikpl4/stallion:latest"
+        if: github.event_name != 'pull_request'
+
+  iso:
+    needs: container
+  
+    runs-on: ubuntu-24.04
+
+    permissions:
+      contents: write
+
+    container:
+      image: "quay.io/fedora/fedora:rawhide"
+      options: "--privileged"
+    
+    steps:
+      - uses: actions/checkout@v7
+      - run: dnf install mkksiso -y
+      - run: curl -O https://mirror.stream.centos.org/10-stream/BaseOS/x86_64/os/images/boot.iso
+      
+      - run: mkksiso bootc/ks.cfg boot.iso stallion-netinst.iso
+
+      - run: echo "millis=$(date +%s%3N)" >> $GITHUB_OUTPUT
+        id: time
+      - uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{steps.time.outputs.millis}}
+          files: stallion-netinst.iso
+          
+          
+      
