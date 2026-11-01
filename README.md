@@ -15,3 +15,9 @@ Missing packages are either from Fedora or EPEL dist-git or SRPMs from older ver
 ```
 podman build -t stallion bootc
 ```
+
+## Usage of the bootc image
+
+It is rather important to note that the bootc image does not automatically start Xfce upon login or a display manager. You have to manually run `xfwl4`.
+
+Furthermore, the installation process will fail if the installer does not have a network connection.
