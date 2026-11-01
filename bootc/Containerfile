@@ -2,7 +2,7 @@ FROM quay.io/centos-bootc/centos-bootc:stream10
 
 RUN dnf remove -y console-login-helper-messages-profile && dnf clean all
 
-RUN dnf install epel-release -y && \
+RUN dnf install dnf-plugins-core epel-release -y && \
     dnf config-manager --set-enabled crb && \
     curl -o /etc/yum.repos.d/stallion.repo https://copr.fedorainfracloud.org/coprs/charles2/stallion/repo/epel-10/charles2-stallion-epel-10.repo && \
     dnf clean all
