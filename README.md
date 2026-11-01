@@ -1,6 +1,6 @@
 # Stallion
 
-Stallion is an experimental suite shipping Xfce 4.21 (for the most part) using CentOS Stream 10.
+Stallion is an experimental suite shipping Xfce 4.21 (for the most part) using CentOS Stream 10 and Wayland.
 
 It consists of both a [Copr repo](https://copr.fedorainfracloud.org/coprs/charles2/stallion/) and a bootc image.
 
