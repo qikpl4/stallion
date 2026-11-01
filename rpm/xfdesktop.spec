@@ -5,7 +5,7 @@
 
 Name:           xfdesktop
 Version:        4.21.1
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Desktop manager for the Xfce Desktop Environment
 
 License:        GPL-2.0-or-later
@@ -31,6 +31,7 @@ BuildRequires:  meson
 BuildRequires:  Thunar-devel >= 1.8.0
 BuildRequires:  xfconf-devel >= %{xfce_version}
 BuildRequires:  xfce4-session-devel
+BuildRequires:  pkgconfig(gstreamer-1.0)
 
 Requires:       xfwm4 >= 4.20
 Requires:       xfce4-panel >= %{xfce_version}
