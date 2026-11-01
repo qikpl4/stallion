@@ -5,7 +5,7 @@
 
 Name:           xfce4-panel
 Version:        4.21.3
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Next generation panel for Xfce
 
 License:        GPL-2.0-or-later AND LGPL-2.0-or-later
@@ -49,7 +49,7 @@ Development files for xfce4-panel.
     -Dgtk-doc=false \
     -Dintrospection=true \
     -Dvala=disabled \
-    -Dx11=enabled \
+    -Dx11=disabled \
     -Dwayland=enabled \
     -Dgtk-layer-shell=enabled \
     -Ddbusmenu=enabled
