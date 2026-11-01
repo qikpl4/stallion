@@ -22,7 +22,7 @@
 Name: network-manager-applet
 Summary: A network control and status applet for NetworkManager
 Version: 1.36.0
-Release: 1001%{?dist}
+Release: 1002%{?dist}
 License: GPL-2.0-or-later
 URL: http://www.gnome.org/projects/NetworkManager/
 Obsoletes: NetworkManager-gnome < %{obsoletes_ver}
@@ -102,20 +102,11 @@ environment.
 %install
 %meson_install
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/gnome-vpn-properties
-rm $RPM_BUILD_ROOT%{_bindir}/nm-applet
-rm $RPM_BUILD_ROOT%{_datadir}/applications/nm-applet.desktop
-rm $RPM_BUILD_ROOT%{_sysconfdir}/xdg/autostart/nm-applet.desktop
-rm $RPM_BUILD_ROOT%{_mandir}/man1/nm-applet*
-rm $RPM_BUILD_ROOT%{_datadir}/locale/*/LC_MESSAGES/nm-applet.mo
 %find_lang nm-applet
 cat nm-applet.lang >> %{name}.lang
 # validate .desktop and autostart files
-%if 0%{?rhel} >= 10
-desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/nm-connection-editor.desktop
-%else
 desktop-file-validate $RPM_BUILD_ROOT%{_sysconfdir}/xdg/autostart/nm-applet.desktop
 desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/nm-connection-editor.desktop
-%endif
 
 %check
 %meson_test
@@ -137,10 +128,8 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/nm-connection-edit
 %{_datadir}/icons/hicolor/scalable/apps/*.svg
 %{_datadir}/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml
 %{_datadir}/GConf/gsettings/nm-applet.convert
-%if 0%{?fedora} || 0%{?rhel} < 10
 %{_sysconfdir}/xdg/autostart/nm-applet.desktop
 %{_mandir}/man1/nm-applet*
-%endif
 %doc NEWS CONTRIBUTING
 %license COPYING
 
@@ -153,9 +142,7 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/nm-connection-edit
 %{_datadir}/icons/hicolor/16x16/apps/nm-vpn-standalone-lock.png
 %{_mandir}/man1/nm-connection-editor*
 %dir %{_datadir}/gnome-vpn-properties
-%if 0%{?fedora} || 0%{?rhel} < 10
 %{name}.lang
-%endif
 
 %files -n nm-connection-editor-desktop
 %{_datadir}/applications/nm-connection-editor.desktop
