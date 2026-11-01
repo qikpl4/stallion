@@ -3,13 +3,13 @@
 
 Name:           xfce4-terminal
 Version:        1.2.0
-Release:        1{%?dist}
+Release:        2{%?dist}
 Summary:        Terminal Emulator for the Xfce Desktop environment
 
 # Automatically converted from old format: GPLv2+ - review is highly recommended.
 License:        GPL-2.0-or-later
 URL:            http://docs.xfce.org/apps/terminal/start
-Source0:        http://archive.xfce.org/src/apps/xfce4-terminal/%{minorversion}/%{name}-%{version}.tar.xz
+Source0:        https://archive.xfce.org/src/apps/xfce4-terminal/%{minorversion}/%{name}-%{version}.tar.xz
 
 
 BuildRequires:  meson

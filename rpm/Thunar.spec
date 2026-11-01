@@ -3,13 +3,13 @@
 
 Name:           Thunar
 Version:        4.20.10
-Release:        1{%?dist}
+Release:        2{%?dist}
 Summary:        Thunar File Manager
 
 License:        GPL-2.0-or-later AND LGPL-2.0-or-later
 URL:            http://thunar.xfce.org/
 #VCS git:git://git.xfce.org/xfce/thunar
-Source0:        http://archive.xfce.org/src/xfce/thunar/%{xfceversion}/thunar-%{version}.tar.bz2
+Source0:        https://archive.xfce.org/src/xfce/thunar/%{xfceversion}/thunar-%{version}.tar.bz2
 
 BuildRequires:  gcc
 BuildRequires:  make
