@@ -3,7 +3,7 @@
 
 Name:           Thunar
 Version:        4.20.10
-Release:        2{%?dist}
+Release:        3%{?dist}
 Summary:        Thunar File Manager
 
 License:        GPL-2.0-or-later AND LGPL-2.0-or-later
@@ -135,6 +135,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{_libdir}/thunarx-*/thunar*.so
 %dir %{_libdir}/Thunar/
 %{_libdir}/Thunar/thunar-sendto-email
+%{_datadir}/Thunar/sendto/thunar-sendto-email.desktop
 %dir %{_datadir}/Thunar/
 %{_datadir}/polkit-1/actions/org.xfce.thunar.policy
 %{_datadir}/applications/*.desktop

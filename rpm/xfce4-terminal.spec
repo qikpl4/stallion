@@ -3,7 +3,7 @@
 
 Name:           xfce4-terminal
 Version:        1.2.0
-Release:        2{%?dist}
+Release:        3%{?dist}
 Summary:        Terminal Emulator for the Xfce Desktop environment
 
 # Automatically converted from old format: GPLv2+ - review is highly recommended.
