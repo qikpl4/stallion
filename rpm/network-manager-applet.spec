@@ -22,7 +22,8 @@
 Name: network-manager-applet
 Summary: A network control and status applet for NetworkManager
 Version: 1.36.0
-Release: 1003%{?dist}
+Release: 1%{?dist}
+Epoch:   1
 License: GPL-2.0-or-later
 URL: http://www.gnome.org/projects/NetworkManager/
 Obsoletes: NetworkManager-gnome < %{obsoletes_ver}
