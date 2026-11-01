@@ -19,6 +19,7 @@ RUN dnf install -y \
     libxfce4util \
     libxfce4windowing \
     mousepad \
+    network-manager-applet \
     seatd \
     swaylock \
     Thunar \
