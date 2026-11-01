@@ -5,7 +5,7 @@
 
 Name:           xfce4-panel
 Version:        4.21.3
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        Next generation panel for Xfce
 
 License:        GPL-2.0-or-later AND LGPL-2.0-or-later
@@ -52,7 +52,7 @@ Development files for xfce4-panel.
     -Dx11=disabled \
     -Dwayland=enabled \
     -Dgtk-layer-shell=enabled \
-    -Ddbusmenu=enabled
+    -Ddbusmenu=disabled
 
 %meson_build
 
@@ -89,3 +89,6 @@ Development files for xfce4-panel.
 %{_datadir}/gir-1.0/Libxfce4panel-*
 
 %changelog
+* Mon Jan 13 2025 Stallion <packages@stallion.osuosl.org> - 4.21.3-8
+- Disable dbusmenu build option
+- Release bump
