@@ -40,5 +40,3 @@ RUN dnf install -y \
 RUN systemctl enable seatd
 
 RUN bootc container lint
-
-RUN useradd -m user; echo user:pass | chpasswd
