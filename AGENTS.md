@@ -1,1 +1,5 @@
-NEVER ADD CHANGELOG ENTRY.
+# AGENTS.md
+
+## Guidelines for `rpm/`
+
+- Never fill in the `%changelog` section.

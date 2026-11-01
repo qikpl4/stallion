@@ -1,0 +1,44 @@
+FROM quay.io/centos-bootc/centos-bootc:stream10
+
+RUN dnf remove -y console-login-helper-messages-profile && dnf clean all
+
+RUN dnf install epel-release -y && \
+    dnf config-manager --set-enabled crb && \
+    curl -o /etc/yum.repos.d/stallion.repo https://copr.fedorainfracloud.org/coprs/charles2/stallion/repo/epel-10/charles2-stallion-epel-10.repo && \
+    dnf clean all
+
+RUN dnf install -y \
+    exo \
+    firefox \
+    flatpak \
+    garcon \
+    iceauth \
+    libwayland-server \
+    libxfce4ui \
+    libxfce4util \
+    libxfce4windowing \
+    mousepad \
+    seatd \
+    Thunar \
+    tumbler \
+    xfce4-about \
+    xfce4-appfinder \
+    xfce4-panel \
+    xfce4-power-manager \
+    xfce4-pulseaudio-plugin \
+    xfce4-session \
+    xfce4-settings \
+    xfce4-terminal \
+    xfce4-whiskermenu-plugin \
+    xfconf \
+    xfdesktop \
+    xfwl4 \
+    xfwm4 \
+    xset && \
+    dnf clean all
+
+RUN systemctl enable seatd
+
+RUN bootc container lint
+
+RUN useradd -m user; echo user:pass | chpasswd
