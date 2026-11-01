@@ -12,6 +12,7 @@ RUN dnf install -y \
     firefox \
     flatpak \
     garcon \
+    gnome-themes-extra \
     iceauth \
     libwayland-server \
     libxfce4ui \
