@@ -7,10 +7,10 @@
 
 %global rpm_version 1.26.0
 %global real_version 1.26.0
-%global release_version 1
+%global release_version 2
 %global epoch 1
 
-%global real_version_major %(printf '%s' '%{real_version}' | sed -n 's/^\\([1-9][0-9]*\\.[1-9][0-9]*\\)\\.[1-9][0-9]*$/\\1/p')
+%global real_version_major 1.26
 
 %if 0%{?fedora} > 31 || 0%{?rhel} > 8
 %bcond_with libnma_gtk4
@@ -35,7 +35,7 @@ Obsoletes: NetworkManager-gnome < %{obsoletes_ver}
 
 Source: https://download.gnome.org/sources/network-manager-applet/%{real_version_major}/%{name}-%{real_version}.tar.xz
 # Patch1: 0001-sample-name.patch
-Patch1: 0001-po-ja-update-Japanese-translation.patch
+# Patch1: 0001-po-ja-update-Japanese-translation.patch
 
 Requires: NetworkManager >= %{nm_version}
 Requires: libnotify >= 0.4.3
