@@ -5,7 +5,7 @@
 
 Name:           xfdesktop
 Version:        4.21.1
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Desktop manager for the Xfce Desktop Environment
 
 License:        GPL-2.0-or-later
@@ -17,6 +17,7 @@ BuildRequires:  exo-devel >= 0.12.0
 BuildRequires:  garcon-devel >= 0.1.2
 BuildRequires:  gcc-c++
 BuildRequires:  gettext
+BuildRequires:  gtk-layer-shell-devel
 BuildRequires:  libgudev1-devel >= 145
 BuildRequires:  libICE-devel
 BuildRequires:  libnotify-devel >= 0.4.0
