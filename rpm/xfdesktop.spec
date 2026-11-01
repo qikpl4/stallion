@@ -5,7 +5,7 @@
 
 Name:           xfdesktop
 Version:        4.21.1
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        Desktop manager for the Xfce Desktop Environment
 
 License:        GPL-2.0-or-later
@@ -44,7 +44,7 @@ This package includes a desktop manager for the Xfce Desktop Environment.
 %build
 %meson \
     -Dx11=disabled \
-    -Dvideo-backdrop=disabled \
+    -Dvideo-backdrop=false \
     -Dtests=false
 
 %meson_build
