@@ -5,7 +5,7 @@
 
 Name:           xfce4-settings
 Version:        4.21.3
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Settings Manager for Xfce
 
 License:        GPL-2.0-or-later
@@ -28,6 +28,7 @@ BuildRequires:  libxfce4util-devel >= %{xfce_version}
 BuildRequires:  libxklavier-devel
 BuildRequires:  make
 BuildRequires:  meson
+BuildRequires:  upower-devel
 BuildRequires:  xfconf-devel >= %{xfce_version}
 
 Requires:       xfconf
