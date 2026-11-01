@@ -109,7 +109,6 @@ rm $RPM_BUILD_ROOT%{_mandir}/man1/nm-applet*
 rm $RPM_BUILD_ROOT%{_datadir}/locale/*/LC_MESSAGES/nm-applet.mo
 %find_lang nm-applet
 cat nm-applet.lang >> %{name}.lang
-%endif
 # validate .desktop and autostart files
 %if 0%{?rhel} >= 10
 desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/nm-connection-editor.desktop
