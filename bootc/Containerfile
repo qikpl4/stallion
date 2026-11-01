@@ -19,6 +19,7 @@ RUN dnf install -y \
     libxfce4windowing \
     mousepad \
     seatd \
+    swaylock \
     Thunar \
     tumbler \
     xfce4-about \
@@ -26,7 +27,6 @@ RUN dnf install -y \
     xfce4-panel \
     xfce4-power-manager \
     xfce4-pulseaudio-plugin \
-    xfce4-screensaver \
     xfce4-session \
     xfce4-settings \
     xfce4-terminal \
