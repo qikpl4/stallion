@@ -39,4 +39,6 @@ RUN dnf install -y \
 
 RUN systemctl enable seatd
 
+RUN sed -i "s/bootc upgrade --apply/bootc upgrade/g" /usr/lib/systemd/system/bootc-fetch-apply-updates.service
+
 RUN bootc container lint
