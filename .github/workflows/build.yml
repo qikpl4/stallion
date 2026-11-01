@@ -39,7 +39,7 @@ jobs:
     
     steps:
       - uses: actions/checkout@v7
-      - run: dnf install mkksiso -y
+      - run: dnf install lorax -y
       - run: curl -O https://mirror.stream.centos.org/10-stream/BaseOS/x86_64/os/images/boot.iso
       
       - run: mkksiso bootc/ks.cfg boot.iso stallion-netinst.iso
